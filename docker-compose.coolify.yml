@@ -4,6 +4,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    labels:
+      - "traefik.http.middlewares.mpt-auth.basicauth.users=admin:HASH_BURAYA"
+      - "coolify.traefik.middlewares=mpt-auth"
     command:
       - streamlit
       - run
